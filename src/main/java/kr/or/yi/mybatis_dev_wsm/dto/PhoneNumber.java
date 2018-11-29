@@ -1,5 +1,8 @@
 package kr.or.yi.mybatis_dev_wsm.dto;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("PhoneNumber")
 public class PhoneNumber {
 	private String contryCode;
 	private String stateCode;

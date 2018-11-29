@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 	<properties resource="application.properties"></properties>
 	
-	<environments default="development1">
+	<environments default="development2">
 		<environment id="development1">
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
