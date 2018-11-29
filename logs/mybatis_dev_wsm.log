@@ -4,3 +4,235 @@
 [2018-11-29] session org.apache.ibatis.session.defaults.DefaultSqlSession@36bf9df5
 [2018-11-29] testOpenSession()
 [2018-11-29] session org.apache.ibatis.session.defaults.DefaultSqlSession@5f5f6301
+[2018-11-29] testOpenSession()
+[2018-11-29] session org.apache.ibatis.session.defaults.DefaultSqlSession@418e7475
+[2018-11-29] testOpenSession()
+[2018-11-29] session org.apache.ibatis.session.defaults.DefaultSqlSession@4b8cd5ee
+[2018-11-29] test01selectStudentByNo()
+[2018-11-29] testOpenSession()
+[2018-11-29] session org.apache.ibatis.session.defaults.DefaultSqlSession@a19285
+[2018-11-29] test01selectStudentByNo()
+[2018-11-29] testOpenSession()
+[2018-11-29] session org.apache.ibatis.session.defaults.DefaultSqlSession@a19285
+[2018-11-29] test01selectStudentByNo()
+[2018-11-29] testOpenSession()
+[2018-11-29] session org.apache.ibatis.session.defaults.DefaultSqlSession@a19285
+[2018-11-29] test01selectStudentByNo()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students where stud_id=?; 
+[2018-11-29] ==> Parameters: 1(Integer)
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==      Total: 1
+[2018-11-29] testOpenSession()
+[2018-11-29] session org.apache.ibatis.session.defaults.DefaultSqlSession@a19285
+[2018-11-29] test01selectStudentByNo()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students where stud_id=?; 
+[2018-11-29] ==> Parameters: 1(Integer)
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==      Total: 1
+[2018-11-29] test02selectStudentByAll()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students; 
+[2018-11-29] ==> Parameters: 
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-11-29] <==      Total: 2
+[2018-11-29] testOpenSession()
+[2018-11-29] session org.apache.ibatis.session.defaults.DefaultSqlSession@5de45282
+[2018-11-29] test01selectStudentByNo()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students where stud_id=?; 
+[2018-11-29] ==> Parameters: 1(Integer)
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==      Total: 1
+[2018-11-29] test02selectStudentByAll()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-11-29] ==> Parameters: 
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-11-29] <==      Total: 2
+[2018-11-29] testOpenSession()
+[2018-11-29] session org.apache.ibatis.session.defaults.DefaultSqlSession@4edcc311
+[2018-11-29] test01selectStudentByNo()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students WHERE stud_id=? 
+[2018-11-29] ==> Parameters: 1(Integer)
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==      Total: 1
+[2018-11-29] test02selectStudentByAll()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-11-29] ==> Parameters: 
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-11-29] <==      Total: 2
+[2018-11-29] testOpenSession()
+[2018-11-29] session org.apache.ibatis.session.defaults.DefaultSqlSession@4edcc311
+[2018-11-29] test01selectStudentByNo()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students WHERE stud_id=? 
+[2018-11-29] ==> Parameters: 1(Integer)
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==      Total: 1
+[2018-11-29] test02selectStudentByAll()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-11-29] ==> Parameters: 
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-11-29] <==      Total: 2
+[2018-11-29] testOpenSession()
+[2018-11-29] session org.apache.ibatis.session.defaults.DefaultSqlSession@25116e8c
+[2018-11-29] test01selectStudentByNo()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students WHERE stud_id=? 
+[2018-11-29] ==> Parameters: 1(Integer)
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==      Total: 1
+[2018-11-29] test02selectStudentByAll()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-11-29] ==> Parameters: 
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-11-29] <==      Total: 2
+[2018-11-29] ==>  Preparing: insert into student value(?,?,?,?,?) 
+[2018-11-29] ==> Parameters: 3(Integer), ȫ�浿(String), lee@test.co.kr(String), 010-1234-1234(String), 1990-03-28 17:06:00.173(Timestamp)
+[2018-11-29] testOpenSession()
+[2018-11-29] session org.apache.ibatis.session.defaults.DefaultSqlSession@25116e8c
+[2018-11-29] test01selectStudentByNo()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students WHERE stud_id=? 
+[2018-11-29] ==> Parameters: 1(Integer)
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==      Total: 1
+[2018-11-29] test02selectStudentByAll()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-11-29] ==> Parameters: 
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-11-29] <==      Total: 2
+[2018-11-29] ==>  Preparing: insert into student value(?,?,?,?,?) 
+[2018-11-29] ==> Parameters: 3(Integer), ȫ�浿(String), lee@test.co.kr(String), 010-1234-1234(String), 1990-03-28 17:12:03.619(Timestamp)
+[2018-11-29] testOpenSession()
+[2018-11-29] session org.apache.ibatis.session.defaults.DefaultSqlSession@25116e8c
+[2018-11-29] test01selectStudentByNo()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students WHERE stud_id=? 
+[2018-11-29] ==> Parameters: 1(Integer)
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==      Total: 1
+[2018-11-29] test02selectStudentByAll()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-11-29] ==> Parameters: 
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-11-29] <==      Total: 2
+[2018-11-29] ==>  Preparing: insert into students(STUD_ID,NAME,EMAIL,PHONE,DOB) value(?,?,?,?,?) 
+[2018-11-29] ==> Parameters: 3(Integer), ȫ�浿(String), lee@test.co.kr(String), 010-1234-1234(String), 1990-03-28 17:13:27.975(Timestamp)
+[2018-11-29] <==    Updates: 1
+[2018-11-29] testOpenSession()
+[2018-11-29] session org.apache.ibatis.session.defaults.DefaultSqlSession@316ec339
+[2018-11-29] test01selectStudentByNo()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students WHERE stud_id=? 
+[2018-11-29] ==> Parameters: 1(Integer)
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==      Total: 1
+[2018-11-29] test02selectStudentByAll()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-11-29] ==> Parameters: 
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-11-29] <==      Total: 2
+[2018-11-29] ==>  Preparing: delete from students where STUD_ID = ?; 
+[2018-11-29] ==> Parameters: 3(Integer)
+[2018-11-29] <==    Updates: 0
+[2018-11-29] ==>  Preparing: insert into students(STUD_ID,NAME,EMAIL,PHONE,DOB) value(?,?,?,?,?) 
+[2018-11-29] ==> Parameters: 3(Integer), ȫ�浿(String), lee@test.co.kr(String), 010-1234-1234(String), 1990-03-28 17:19:44.712(Timestamp)
+[2018-11-29] <==    Updates: 1
+[2018-11-29] testOpenSession()
+[2018-11-29] session org.apache.ibatis.session.defaults.DefaultSqlSession@59cb1150
+[2018-11-29] test01selectStudentByNo()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students WHERE stud_id=? 
+[2018-11-29] ==> Parameters: 1(Integer)
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==      Total: 1
+[2018-11-29] test02selectStudentByAll()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-11-29] ==> Parameters: 
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-11-29] <==        Row: 3, ȫ�浿, lee@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-11-29] <==      Total: 3
+[2018-11-29] ==>  Preparing: delete from students where STUD_ID = ?; 
+[2018-11-29] ==> Parameters: 3(Integer)
+[2018-11-29] <==    Updates: 1
+[2018-11-29] ==>  Preparing: insert into students(STUD_ID,NAME,EMAIL,PHONE,DOB) value(?,?,?,?,?) 
+[2018-11-29] ==> Parameters: 3(Integer), ȫ�浿(String), lee@test.co.kr(String), 010-1234-1234(String), 1990-03-28 17:20:05.784(Timestamp)
+[2018-11-29] <==    Updates: 1
+[2018-11-29] testOpenSession()
+[2018-11-29] session org.apache.ibatis.session.defaults.DefaultSqlSession@316ec339
+[2018-11-29] test01selectStudentByNo()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students WHERE stud_id=? 
+[2018-11-29] ==> Parameters: 1(Integer)
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==      Total: 1
+[2018-11-29] test02selectStudentByAll()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-11-29] ==> Parameters: 
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-11-29] <==        Row: 3, ȫ�浿, lee@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-11-29] <==      Total: 3
+[2018-11-29] ==>  Preparing: insert into students(STUD_ID,NAME,EMAIL,PHONE,DOB) value(?,?,?,?,?) 
+[2018-11-29] ==> Parameters: 3(Integer), ȫ�浿(String), lee@test.co.kr(String), 010-1234-1234(String), 1990-03-28 17:21:53.668(Timestamp)
+[2018-11-29] ==>  Preparing: delete from students where STUD_ID = ?; 
+[2018-11-29] ==> Parameters: 3(Integer)
+[2018-11-29] <==    Updates: 1
+[2018-11-29] testOpenSession()
+[2018-11-29] session org.apache.ibatis.session.defaults.DefaultSqlSession@316ec339
+[2018-11-29] test01selectStudentByNo()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students WHERE stud_id=? 
+[2018-11-29] ==> Parameters: 1(Integer)
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==      Total: 1
+[2018-11-29] test02selectStudentByAll()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-11-29] ==> Parameters: 
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-11-29] <==      Total: 2
+[2018-11-29] ==>  Preparing: insert into students(STUD_ID,NAME,EMAIL,PHONE,DOB) value(?,?,?,?,?) 
+[2018-11-29] ==> Parameters: 3(Integer), ȫ�浿(String), lee@test.co.kr(String), 010-1234-1234(String), 1990-03-28 17:22:10.345(Timestamp)
+[2018-11-29] <==    Updates: 1
+[2018-11-29] ==>  Preparing: delete from students where STUD_ID = ?; 
+[2018-11-29] ==> Parameters: 3(Integer)
+[2018-11-29] <==    Updates: 1
+[2018-11-29] test01selectStudentByNo()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students WHERE stud_id=? 
+[2018-11-29] ==> Parameters: 1(Integer)
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==      Total: 1
+[2018-11-29] test02selectStudentByAll()
+[2018-11-29] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-11-29] ==> Parameters: 
+[2018-11-29] <==    Columns: studid, name, email, dob, phone
+[2018-11-29] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-11-29] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-11-29] <==      Total: 2
+[2018-11-29] ==>  Preparing: insert into students(STUD_ID,NAME,EMAIL,PHONE,DOB) value(?,?,?,?,?) 
+[2018-11-29] ==> Parameters: 3(Integer), 홍길동(String), lee@test.co.kr(String), 010-1234-1234(String), 1990-03-28 17:24:46.457(Timestamp)
+[2018-11-29] <==    Updates: 1
