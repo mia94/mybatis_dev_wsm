@@ -37,8 +37,11 @@ public class StudentMapperImpl implements StudentMapper {
 
 	@Override
 	public int updateStudent(Student student) {
-		// TODO Auto-generated method stub
-		return 0;
+		try(SqlSession sqlSession = MyBatisSqlSessionFactory.openSession();){
+			int res = sqlSession.update(namespace+".updateStudent",student);
+			return res;
+		}
+		
 	}
 
 	@Override

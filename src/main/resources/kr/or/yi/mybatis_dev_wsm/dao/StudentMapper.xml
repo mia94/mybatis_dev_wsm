@@ -35,13 +35,13 @@
 	<delete id="deleteStudent">
 		delete
 		from students
-		where STUD_ID = #{studId};
+		where STUD_ID = #{studId}; <!-- int로 받기때문에 get메소드를 불러오지 못함 -->
 	</delete>
 	
-	<update id="deleteStudent">
+	<update id="updateStudent" parameterType="Student">
 		update students
-		set	NAME = "홍길동2"
-		where STUD_ID = 3
+		set	NAME = #{name}, EMAIL=#{email},PHONE=#{phone},DOB=#{dob}
+		where STUD_ID = #{studId}
 	</update>
 </mapper>
 
