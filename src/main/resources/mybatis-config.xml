@@ -5,6 +5,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 	<properties resource="application.properties"></properties>
 	
+	<typeAliases>
+		<package name="kr.or.yi.mybatis_dev_wsm.dto"/>
+	</typeAliases>
+	
 	<environments default="development1">
 		<environment id="development1">
 			<transactionManager type="JDBC" />
