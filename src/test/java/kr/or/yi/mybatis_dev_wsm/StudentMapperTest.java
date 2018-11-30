@@ -7,6 +7,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 
 import org.apache.ibatis.logging.Log;
+import org.apache.ibatis.session.SqlSession;
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -46,6 +47,23 @@ public class StudentMapperTest extends AbstractTest {
 		Student student = new Student(5,"홍길동","lee@test.co.kr",newDate.getTime(),new PhoneNumber("010-1234-1234"));
 		
 		int res = dao.insertStudent(student);
+		Assert.assertEquals(1, res);
+	}
+	
+	@Test
+	public void test04updateStudent() {
+		Calendar newDate = GregorianCalendar.getInstance();
+		newDate.set(1990, 4, 28);
+		
+		Student student = new Student(5,"홍길동2","test2@test.com",newDate.getTime(),new PhoneNumber("010-1111-2222"));
+		
+		int res = dao.updateStudent(student);
+		Assert.assertEquals(1, res);
+	}
+	
+	@Test
+	public void test05deleteStudent() {
+		int res = dao.deleteStudent(5);
 		Assert.assertEquals(1, res);
 	}
 }
