@@ -16,6 +16,8 @@ public interface StudentMapper {
 	//resultMap Extends2
 	Student selectStudentByNoForResultMapExtends2(int studId);
 	
+	//매퍼 인터페이스
+	
 	Student selectStudentByNo(Student student);
 	List<Student> selectStudentByAll();
 	
