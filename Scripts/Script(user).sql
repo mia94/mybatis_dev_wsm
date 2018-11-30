@@ -18,4 +18,26 @@ update students
 set	NAME = "홍길동2"
 where STUD_ID = 3;
 
+select STUD_ID, name, email, phone, a.ADDR_ID, street, city, state, zip, country
+from students s left join addresses a on s.ADDR_ID = a.ADDR_ID
+where STUD_ID = 1;
+
+
+
+select STUD_ID as studid, name, email, phone, a.ADDR_ID, street, city, state, zip, country
+from students s left join addresses a on s.ADDR_ID = a.ADDR_ID;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

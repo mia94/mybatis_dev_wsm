@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.or.yi.mybatis_dev_wsm.dao.StudentMapper">
+	<!-- resultmap -->
+	<resultMap type="Student" id="StudentResult">
+		<id property="studId" column="stud_id"/>
+		<result property="name" column="name"/>
+		<result property="email" column="email"/>
+		<result property="phone" column="phone"/>
+		<result property="dob" column="dob"/>
+	</resultMap>
+	<!-- address -->
+	<resultMap type="Student" id="StudentWithAddressResult" extends="StudentResult">
+		<result property="address.addrId" column="addr_id"/>
+		<result property="address.street" column="street"/>
+		<result property="address.city" column="city"/>
+		<result property="address.state" column="state"/>
+		<result property="address.zip" column="zip"/>
+		<result property="address.country" column="country"/>
+	</resultMap>
+	<!-- 상속없이 -->
+	<resultMap type="Student" id="StudentWithAddressResult2">
+		<id property="studId" column="stud_id"/>
+		<result property="name" column="name"/>
+		<result property="email" column="email"/>
+		<result property="phone" column="phone"/>
+		<result property="dob" column="dob"/>
+		<result property="address.addrId" column="addr_id"/>
+		<result property="address.street" column="street"/>
+		<result property="address.city" column="city"/>
+		<result property="address.state" column="state"/>
+		<result property="address.zip" column="zip"/>
+		<result property="address.country" column="country"/>
+	</resultMap>
+	
+	<!-- hashMap -->
+	<select id="selectStudentByAllForHashMap" resultType="map">
+		<include refid="selectSql"></include>
+	</select>
+	
+
 	<sql id="selectSql">
 		select stud_id as studid, name, email, dob, phone
 		from students
@@ -12,7 +50,26 @@
 			</if>
 		</where>
 	</sql>
-
+	<sql id="joinSql">
+		select STUD_ID, name, email, phone, a.ADDR_ID, street, city, state, zip, country
+		from students s left join addresses a on s.ADDR_ID = a.ADDR_ID
+	</sql>
+	
+	<select id="selectStudentByNoForResultMapExtends" parameterType="Student" resultMap="StudentWithAddressResult">
+		<include refid="joinSql"></include>
+		<include refid="whereSql"></include>
+	</select>
+	
+	<select id="selectStudentByNoForResultMapExtends2" parameterType="int" resultMap="StudentWithAddressResult2">
+		select STUD_ID, name, email, phone, a.ADDR_ID, street, city, state, zip, country
+		from students s left join addresses a on s.ADDR_ID = a.ADDR_ID
+		where STUD_ID = 1
+	</select>
+	
+	<select id="selectStudentByAllForResultMap" resultMap="StudentResult">
+		<include refid="selectSql"></include>
+	</select>
+	
 	<select id="selectStudentByNo" parameterType="Student" resultType="Student">
 		<include refid="selectSql"/>
 		<include refid="whereSql"/>
