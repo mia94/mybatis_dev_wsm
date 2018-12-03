@@ -104,6 +104,12 @@ public class StudentMapperTest extends AbstractTest {
 		List<Student> lists = dao.selectStudentByAllForResultMapExtXML();
 		Assert.assertNotNull(lists);
 	}
+	
+	@Test
+	public void test12selectStudentOneToOne() {
+		Student student = dao.selectStudentOneToOne(1);
+		Assert.assertNotNull(student);
+	}
 }
 
 
