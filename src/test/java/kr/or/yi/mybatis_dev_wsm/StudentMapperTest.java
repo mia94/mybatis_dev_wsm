@@ -125,7 +125,11 @@ public class StudentMapperTest extends AbstractTest {
 		for(StackTraceElement s : ste) {
 			System.out.println(s);
 		}
-		//Student student
+		/*Student student = new Student();
+		student.setStudId(1);
+		
+		Student lists = dao.selectStudentByNoAssociation(student);
+		Assert.assertNotNull(lists);*/
 	}
 	
 }
