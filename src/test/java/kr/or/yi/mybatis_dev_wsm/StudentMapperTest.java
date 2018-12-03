@@ -117,6 +117,17 @@ public class StudentMapperTest extends AbstractTest {
 		Assert.assertNotNull(extStd);
 	}
 	
+	@Test
+	public void test11selectStudentByNoAssociation() {
+		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName()+"()");
+		//메소드 이름 출력할수 있는 배열 눈으로 확인해보기
+		StackTraceElement[] ste = Thread.currentThread().getStackTrace();
+		for(StackTraceElement s : ste) {
+			System.out.println(s);
+		}
+		//Student student
+	}
+	
 }
 
 

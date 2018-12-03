@@ -24,4 +24,7 @@ public interface StudentMapper {
 	int insertStudent(Student student);
 	int updateStudent(Student student);
 	int deleteStudent(int studId);
+	
+	//내포된 결과매핑(ResultMap)을 사용한 일대일매핑
+	Student selectStudentByNoAssociation(Student student);
 }

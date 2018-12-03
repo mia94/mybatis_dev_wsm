@@ -2,6 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mappers.StudentMapper">
 
+	
+	
 	<resultMap id="StudentResult" type="Student">
 		<id property="studId" column="stud_id"/>
 		<result property="name" column="name"/>
@@ -19,4 +21,39 @@
 		<result property="address.country" column="country"/>
 	</resultMap>
 	
+	<!-- 내포된 결과매핑을 사용한 일대일 매핑 -->
+	<resultMap type="Student" id="StudentAssociation" extends="StudentResult">
+		<association property="address" resultMap="kr.or.yi.mybatis_dev_wsm.dao.AddressMapper.AddressResult"/>
+	</resultMap>
+	
+	<sql id="selectJoinAddressSql">
+		SELECT STUD_ID, NAME, EMAIL, PHONE, A.ADDR_ID, STREET, CITY, STATE, ZIP, COUNTRY FROM STUDENT S JOIN ADDRESSES A ON S.ADDR_ID=A.ADDR_ID
+	</sql>
+	
+	<sql id="where">
+		<where>
+			<if test="stud_id != null">
+				stud_id=#{studId}
+			</if>
+		</where>
+	</sql>
+	
+	<select id="selectStudentByNoAssociation" parameterType="Student" resultMap="StudentAssociation">
+		<include refid="selectJoinAddressSql"></include>
+		<include refid="where"></include>
+	</select>
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
