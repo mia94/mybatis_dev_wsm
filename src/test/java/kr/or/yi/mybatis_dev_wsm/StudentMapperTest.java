@@ -3,7 +3,11 @@ package kr.or.yi.mybatis_dev_wsm;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import org.junit.Assert;
 import org.junit.FixMethodOrder;
@@ -64,6 +68,55 @@ public class StudentMapperTest extends AbstractTest {
 		int res = dao.deleteStudent(3);
 		Assert.assertSame(1, res);
 	}
+	
+	@Test
+	public void test07selectStudentByAllForResultMap() {
+		List<Student> lists = dao.selectStudentByAllForResultMap();
+		Assert.assertNotNull(lists);
+	}
+	
+	@Test
+	public void test08selectStudentByAllForHashMap() {
+		List<Map<String,Object>> lists = dao.selectStudentByAllForHashMap(); 
+//		System.out.println(lists.size()); -- 2반환
+
+		
+		//일반for문 이용
+		/*for(int i = 0; i<lists.size();i++) {
+			Map<String,Object> m = lists.get(i); 			-- 한줄씩 뽑아옴
+			Set<String> s = m.keySet(); 					-- 키값(String 부분)만 추출, keySet은 키값이 들어가있는 묶음
+			Iterator<String> it = s.iterator();				-- 반복자로 만들기
+			while(it.hasNext()) { 							-- 다음이 존재하면 반복
+				String key = it.next(); 					-- it.next()가 계속되지 않도록 값에 저장
+				System.out.println(key + ": "+ m.get(key)); -- 키값과 value값 추가
+			}
+		}*/
+		
+		
+		//확장for이용
+		for(Map<String, Object> m : lists) {
+			for(Entry<String, Object> e : m.entrySet()) {
+				log.debug(String.format("\tkey(%s)-value(%s)", e.getKey(), e.getValue()));
+			}
+			System.out.println();
+		}
+		Assert.assertNotNull(lists);
+	}
+	
+	@Test
+	public void test09selectStudentByNoForResultMapExtends() {
+		Student student = new Student();
+		student.setStudId(1);
+		Student extStd = dao.selectStudentByNoForResultMapExtends(student);
+		Assert.assertNotNull(extStd);
+	}
+	
+	@Test
+	public void test10selectStudentByNoForResultMapExtends2() {
+		Student extStd = dao.selectStudentByNoForResultMapExtends2(1); // 바로 int로 받았기 때문에 객체 생성할 필요없이 바로 번호 입력
+		Assert.assertNotNull(extStd);
+	}
+	
 }
 
 

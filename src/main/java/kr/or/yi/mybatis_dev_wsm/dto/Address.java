@@ -7,6 +7,7 @@ public class Address {
 	private String state;
 	private String zip;
 	private String country;
+
 	public int getAddrId() {
 		return addrId;
 	}
