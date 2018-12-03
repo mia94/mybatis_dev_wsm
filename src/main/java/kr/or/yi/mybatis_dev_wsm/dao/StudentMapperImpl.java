@@ -1,6 +1,9 @@
 package kr.or.yi.mybatis_dev_wsm.dao;
 
 import java.util.List;
+import java.util.Map;
+
+import javax.xml.stream.events.Namespace;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -53,6 +56,44 @@ public class StudentMapperImpl implements StudentMapper {
 			return res;
 		}
 	}
+
+	@Override
+	public List<Student> selectStudentByAllForResults() {
+		try(SqlSession sqlsession = MyBatisSqlSessionFactory.openSession()){
+			return sqlsession.selectList(namespace+".selectStudentByAllForResults");
+		}	
+	}
+
+	@Override
+	public List<Map<String, Object>> selectStudentByAllForResultMap() {
+		try(SqlSession sqlsession = MyBatisSqlSessionFactory.openSession()){
+			return sqlsession.selectList(namespace+".selectStudentByAllForResultMap");
+		}
+	}
+
+	@Override
+	public List<Student> selectStudentByAllForMapper() {
+		try(SqlSession sqlsession = MyBatisSqlSessionFactory.openSession()){
+			return sqlsession.selectList(namespace + ".selectStudentByAllForMapper");
+		}
+	}
+
+	@Override
+	public List<Student> selectStudentByAllForResultMapExt() {
+		try(SqlSession sqlsession = MyBatisSqlSessionFactory.openSession()){
+			return sqlsession.selectList(namespace+".selectStudentByAllForResultMapExt");
+		}
+	}
+
+	@Override
+	public List<Student> selectStudentByAllForResultMapExtXML() {
+		try(SqlSession sqlsession = MyBatisSqlSessionFactory.openSession()){
+			return sqlsession.selectList(namespace+".selectStudentByAllForResultMapExtXML");
+		}
+		
+	}
+	
+	
 
 }
 

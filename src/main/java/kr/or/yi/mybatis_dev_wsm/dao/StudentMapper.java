@@ -1,9 +1,13 @@
 package kr.or.yi.mybatis_dev_wsm.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Result;
+import org.apache.ibatis.annotations.ResultMap;
+import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
@@ -24,4 +28,60 @@ public interface StudentMapper {
 	
 	@Delete("delete from students where STUD_ID=#{studId}")
 	int deleteStudent(int studId);
+	
+	@Results(id="studentResult", value={
+			@Result (id=true, column="stud_id", property="studId"),
+			@Result (column="name", property="name"),
+			@Result (column="email", property="email"),
+			@Result (column="phone", property="phone"),
+			@Result (column="dob", property="dob")
+	})
+	
+	@Select("select stud_id, name, email, phone, dob from students")
+	List<Student> selectStudentByAllForResults();
+	
+	@Results({
+			@Result (id=true, column="stud_id", property="studId"),
+			@Result (column="name", property="name"),
+			@Result (column="email", property="email"),
+			@Result (column="phone", property="phone"),
+			@Result (column="dob", property="dob")
+	})
+	@Select("select stud_id, name, email, phone, dob from students")
+	List<Map<String,Object>> selectStudentByAllForResultMap();
+	
+	@Select("select stud_id, name, email, phone, dob from students")
+	@ResultMap("mappers.StudentMapper.StudentResult") // StudentMapper.xml의 경로 + resultMap의 id
+	List<Student> selectStudentByAllForMapper();
+	
+	@Results(id="StudentWithAddressResult", value= {
+			@Result(id=true, column="stud_id", property="studId"),
+			@Result(column="name", property="name"),
+			@Result(column="email", property="email"),
+			@Result(column="phone", property="phone"),
+			@Result(column="dob", property="dob"),
+			@Result(column="addr_id", property="address.addrId"),
+			@Result(column="street", property="address.street"),
+			@Result(column="city", property="address.city"),
+			@Result(column="state", property="address.state"),
+			@Result(column="zip", property="address.zip"),
+			@Result(column="country", property="address.country")
+	})
+	@Select("select stud_id, name, email, phone, a.addr_id, street, city, state, zip, country from students s join addresses a on s.addr_id=a.addr_id")
+	List<Student> selectStudentByAllForResultMapExt();
+	
+	@Select("select stud_id, name, email, phone, a.addr_id, street, city, state, zip, country from students s join addresses a on s.addr_id=a.addr_id")
+	@ResultMap("mappers.StudentMapper.StudentWithAddressResult")
+	List<Student> selectStudentByAllForResultMapExtXML();
 }
+
+
+
+
+
+
+
+
+
+
+
