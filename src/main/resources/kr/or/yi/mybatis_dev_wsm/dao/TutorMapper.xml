@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.or.yi.mybatis_dev_wsm.dao.TutorMapper">
+	
+	<resultMap type="Tutor" id="TutorResult">
+		<id property="tutorId" column="tutor_id"></id>
+		<result property="name" column="tutor_name"/>
+		<result property="email" column="email"/>
+		<association property="address" resultMap="kr.or.yi.mybatis_dev_wsm.dao.AddressMapper.AddressResult"/>
+		<collection property="course" resultMap="kr.or.yi.mybatis_dev_wsm.dao.CourseMapper.CourseResult"/>
+	</resultMap>
+	
+	<!-- select -->
+	<sql id="selectSql">
+		select t.TUTOR_ID, t.NAME as tutor_name, email, c.COURSE_ID, c.NAME, a.addr_id, description, start_date, end_date
+		from tutors t left outer join addresses a on t.ADDR_ID=a.ADDR_ID
+			left outer join courses c on t.TUTOR_ID=c.TUTOR_ID
+	</sql>
+	
+	<sql id="where">
+		<where>
+			<if test="tutorId != null">
+				t.tutor_id=#{tutorId}
+			</if>
+		</where>
+	</sql>
+	
+	<select id="selectTutorByTutorId" parameterType="Tutor" resultMap="TutorResult">
+		<include refid="selectSql"></include>
+		<include refid="where"></include>
+	</select>
+	
+	<select id="selectTutorById" parameterType="int" resultMap="TutorResult">
+		<include refid="selectSql"></include>
+		where t.tutor_id=#{tutorId}
+	</select>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
