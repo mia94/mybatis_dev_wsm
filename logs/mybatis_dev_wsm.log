@@ -1810,3 +1810,579 @@
 [2018-12-04] <==        Row: 1, John, john@gmail.com, 1, Quickstart Core Java, 1, Core Java Programming, 2013-03-01, 2013-04-15
 [2018-12-04] <==        Row: 1, John, john@gmail.com, 2, Quickstart JavaEE6, 1, Enterprise App Development using JavaEE6, 2013-04-01, 2013-08-30
 [2018-12-04] <==      Total: 2
+[2018-12-05] test01selectStudentByNo()
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students WHERE stud_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==      Total: 1
+[2018-12-05] test02selectStudentByAll()
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-12-05] <==      Total: 2
+[2018-12-05] ==>  Preparing: insert into students(STUD_ID,NAME,EMAIL,PHONE,DOB) value(?,?,?,?,?) 
+[2018-12-05] ==> Parameters: 3(Integer), 홍길동(String), lee@test.co.kr(String), 010-1234-1234(String), 1990-03-28 14:41:33.674(Timestamp)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: update students set NAME = ?, EMAIL=?,PHONE=?,DOB=? where STUD_ID = ? 
+[2018-12-05] ==> Parameters: 홍길동2(String), test@test.co.kr(String), 987-654-3211(String), 2018-12-05 14:41:33.689(Timestamp), 3(Integer)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: delete from students where STUD_ID = ?; 
+[2018-12-05] ==> Parameters: 3(Integer)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-12-05] <==      Total: 2
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-12-05] <==      Total: 2
+[2018-12-05] 	key(phone)-value(123-123-1234)
+[2018-12-05] 	key(dob)-value(1988-04-25)
+[2018-12-05] 	key(name)-value(Timothy)
+[2018-12-05] 	key(studid)-value(1)
+[2018-12-05] 	key(email)-value(timothy@gmail.com)
+[2018-12-05] 	key(phone)-value(789-456-1234)
+[2018-12-05] 	key(dob)-value(1990-08-15)
+[2018-12-05] 	key(name)-value(Douglas)
+[2018-12-05] 	key(studid)-value(2)
+[2018-12-05] 	key(email)-value(douglas@gmail.com)
+[2018-12-05] ==>  Preparing: select STUD_ID, name, email, phone, a.ADDR_ID, street, city, state, zip, country from students s left join addresses a on s.ADDR_ID = a.ADDR_ID WHERE stud_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: STUD_ID, name, email, phone, ADDR_ID, street, city, state, zip, country
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 123-123-1234, 3, 710 N Cable Rd, Lima, OH, 45825, Allen
+[2018-12-05] <==      Total: 1
+[2018-12-05] ==>  Preparing: select STUD_ID, name, email, phone, a.ADDR_ID, street, city, state, zip, country from students s left join addresses a on s.ADDR_ID = a.ADDR_ID where STUD_ID =? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: STUD_ID, name, email, phone, ADDR_ID, street, city, state, zip, country
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 123-123-1234, 3, 710 N Cable Rd, Lima, OH, 45825, Allen
+[2018-12-05] <==      Total: 1
+[2018-12-05] test11selectStudentByNoAssociation()
+[2018-12-05] ==>  Preparing: insert into students(stud_id, name, email, phone, dob, gender) values(?,?,?,?,?,?) 
+[2018-12-05] ==> Parameters: 0(Integer), test(String), test@test.co.kr(String), 010-1234-1234(String), 1990-03-28 14:41:33.721(Timestamp), 0(Integer)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] testOpenSession()
+[2018-12-05] session org.apache.ibatis.session.defaults.DefaultSqlSession@2e0bcdad
+[2018-12-05] test01selectStudentByNo()
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students WHERE stud_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==      Total: 1
+[2018-12-05] test02selectStudentByAll()
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-12-05] <==        Row: 6, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==      Total: 3
+[2018-12-05] ==>  Preparing: insert into students(STUD_ID,NAME,EMAIL,PHONE,DOB) value(?,?,?,?,?) 
+[2018-12-05] ==> Parameters: 3(Integer), ȫ�浿(String), lee@test.co.kr(String), 010-1234-1234(String), 1990-03-28 14:41:59.837(Timestamp)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: update students set NAME = ?, EMAIL=?,PHONE=?,DOB=? where STUD_ID = ? 
+[2018-12-05] ==> Parameters: ȫ�浿2(String), test@test.co.kr(String), 987-654-3211(String), 2018-12-05 14:41:59.848(Timestamp), 3(Integer)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: delete from students where STUD_ID = ?; 
+[2018-12-05] ==> Parameters: 3(Integer)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-12-05] <==        Row: 6, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==      Total: 3
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-12-05] <==        Row: 6, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==      Total: 3
+[2018-12-05] 	key(phone)-value(123-123-1234)
+[2018-12-05] 	key(dob)-value(1988-04-25)
+[2018-12-05] 	key(name)-value(Timothy)
+[2018-12-05] 	key(studid)-value(1)
+[2018-12-05] 	key(email)-value(timothy@gmail.com)
+[2018-12-05] 	key(phone)-value(789-456-1234)
+[2018-12-05] 	key(dob)-value(1990-08-15)
+[2018-12-05] 	key(name)-value(Douglas)
+[2018-12-05] 	key(studid)-value(2)
+[2018-12-05] 	key(email)-value(douglas@gmail.com)
+[2018-12-05] 	key(phone)-value(010-1234-1234)
+[2018-12-05] 	key(dob)-value(1990-03-28)
+[2018-12-05] 	key(name)-value(test)
+[2018-12-05] 	key(studid)-value(6)
+[2018-12-05] 	key(email)-value(test@test.co.kr)
+[2018-12-05] ==>  Preparing: select STUD_ID, name, email, phone, a.ADDR_ID, street, city, state, zip, country from students s left join addresses a on s.ADDR_ID = a.ADDR_ID WHERE stud_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: STUD_ID, name, email, phone, ADDR_ID, street, city, state, zip, country
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 123-123-1234, 3, 710 N Cable Rd, Lima, OH, 45825, Allen
+[2018-12-05] <==      Total: 1
+[2018-12-05] ==>  Preparing: select STUD_ID, name, email, phone, a.ADDR_ID, street, city, state, zip, country from students s left join addresses a on s.ADDR_ID = a.ADDR_ID where STUD_ID =? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: STUD_ID, name, email, phone, ADDR_ID, street, city, state, zip, country
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 123-123-1234, 3, 710 N Cable Rd, Lima, OH, 45825, Allen
+[2018-12-05] <==      Total: 1
+[2018-12-05] test11selectStudentByNoAssociation()
+[2018-12-05] ==>  Preparing: insert into students(stud_id, name, email, phone, dob, gender) values(?,?,?,?,?,?) 
+[2018-12-05] ==> Parameters: 0(Integer), test(String), test@test.co.kr(String), 010-1234-1234(String), 1990-03-28 14:41:59.895(Timestamp), 0(Integer)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] selectTutorById
+[2018-12-05] ==>  Preparing: select t.TUTOR_ID, t.NAME as tutor_name, email, c.COURSE_ID, c.NAME, a.addr_id, description, start_date, end_date from tutors t left outer join addresses a on t.ADDR_ID=a.ADDR_ID left outer join courses c on t.TUTOR_ID=c.TUTOR_ID where t.tutor_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: TUTOR_ID, tutor_name, email, COURSE_ID, NAME, addr_id, description, start_date, end_date
+[2018-12-05] <==        Row: 1, John, john@gmail.com, 1, Quickstart Core Java, 1, Core Java Programming, 2013-03-01, 2013-04-15
+[2018-12-05] <==        Row: 1, John, john@gmail.com, 2, Quickstart JavaEE6, 1, Enterprise App Development using JavaEE6, 2013-04-01, 2013-08-30
+[2018-12-05] <==      Total: 2
+[2018-12-05] selectTutorByTutorId
+[2018-12-05] ==>  Preparing: select t.TUTOR_ID, t.NAME as tutor_name, email, c.COURSE_ID, c.NAME, a.addr_id, description, start_date, end_date from tutors t left outer join addresses a on t.ADDR_ID=a.ADDR_ID left outer join courses c on t.TUTOR_ID=c.TUTOR_ID WHERE t.tutor_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: TUTOR_ID, tutor_name, email, COURSE_ID, NAME, addr_id, description, start_date, end_date
+[2018-12-05] <==        Row: 1, John, john@gmail.com, 1, Quickstart Core Java, 1, Core Java Programming, 2013-03-01, 2013-04-15
+[2018-12-05] <==        Row: 1, John, john@gmail.com, 2, Quickstart JavaEE6, 1, Enterprise App Development using JavaEE6, 2013-04-01, 2013-08-30
+[2018-12-05] <==      Total: 2
+[2018-12-05] testOpenSession()
+[2018-12-05] session org.apache.ibatis.session.defaults.DefaultSqlSession@2e0bcdad
+[2018-12-05] test01selectStudentByNo()
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students WHERE stud_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==      Total: 1
+[2018-12-05] test02selectStudentByAll()
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-12-05] <==        Row: 6, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==        Row: 7, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==      Total: 4
+[2018-12-05] ==>  Preparing: insert into students(STUD_ID,NAME,EMAIL,PHONE,DOB) value(?,?,?,?,?) 
+[2018-12-05] ==> Parameters: 3(Integer), ȫ�浿(String), lee@test.co.kr(String), 010-1234-1234(String), 1990-03-28 14:43:21.616(Timestamp)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: update students set NAME = ?, EMAIL=?,PHONE=?,DOB=? where STUD_ID = ? 
+[2018-12-05] ==> Parameters: ȫ�浿2(String), test@test.co.kr(String), 987-654-3211(String), 2018-12-05 14:43:21.626(Timestamp), 3(Integer)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: delete from students where STUD_ID = ?; 
+[2018-12-05] ==> Parameters: 3(Integer)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-12-05] <==        Row: 6, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==        Row: 7, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==      Total: 4
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-12-05] <==        Row: 6, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==        Row: 7, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==      Total: 4
+[2018-12-05] 	key(phone)-value(123-123-1234)
+[2018-12-05] 	key(dob)-value(1988-04-25)
+[2018-12-05] 	key(name)-value(Timothy)
+[2018-12-05] 	key(studid)-value(1)
+[2018-12-05] 	key(email)-value(timothy@gmail.com)
+[2018-12-05] 	key(phone)-value(789-456-1234)
+[2018-12-05] 	key(dob)-value(1990-08-15)
+[2018-12-05] 	key(name)-value(Douglas)
+[2018-12-05] 	key(studid)-value(2)
+[2018-12-05] 	key(email)-value(douglas@gmail.com)
+[2018-12-05] 	key(phone)-value(010-1234-1234)
+[2018-12-05] 	key(dob)-value(1990-03-28)
+[2018-12-05] 	key(name)-value(test)
+[2018-12-05] 	key(studid)-value(6)
+[2018-12-05] 	key(email)-value(test@test.co.kr)
+[2018-12-05] 	key(phone)-value(010-1234-1234)
+[2018-12-05] 	key(dob)-value(1990-03-28)
+[2018-12-05] 	key(name)-value(test)
+[2018-12-05] 	key(studid)-value(7)
+[2018-12-05] 	key(email)-value(test@test.co.kr)
+[2018-12-05] ==>  Preparing: select STUD_ID, name, email, phone, a.ADDR_ID, street, city, state, zip, country from students s left join addresses a on s.ADDR_ID = a.ADDR_ID WHERE stud_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: STUD_ID, name, email, phone, ADDR_ID, street, city, state, zip, country
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 123-123-1234, 3, 710 N Cable Rd, Lima, OH, 45825, Allen
+[2018-12-05] <==      Total: 1
+[2018-12-05] ==>  Preparing: select STUD_ID, name, email, phone, a.ADDR_ID, street, city, state, zip, country from students s left join addresses a on s.ADDR_ID = a.ADDR_ID where STUD_ID =? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: STUD_ID, name, email, phone, ADDR_ID, street, city, state, zip, country
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 123-123-1234, 3, 710 N Cable Rd, Lima, OH, 45825, Allen
+[2018-12-05] <==      Total: 1
+[2018-12-05] ==>  Preparing: insert into students(stud_id, name, email, phone, dob, gender) values(?,?,?,?,?,?) 
+[2018-12-05] ==> Parameters: 0(Integer), test(String), test@test.co.kr(String), 010-1234-1234(String), 1990-03-28 14:43:21.663(Timestamp), 0(Integer)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] selectTutorById
+[2018-12-05] ==>  Preparing: select t.TUTOR_ID, t.NAME as tutor_name, email, c.COURSE_ID, c.NAME, a.addr_id, description, start_date, end_date from tutors t left outer join addresses a on t.ADDR_ID=a.ADDR_ID left outer join courses c on t.TUTOR_ID=c.TUTOR_ID where t.tutor_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: TUTOR_ID, tutor_name, email, COURSE_ID, NAME, addr_id, description, start_date, end_date
+[2018-12-05] <==        Row: 1, John, john@gmail.com, 1, Quickstart Core Java, 1, Core Java Programming, 2013-03-01, 2013-04-15
+[2018-12-05] <==        Row: 1, John, john@gmail.com, 2, Quickstart JavaEE6, 1, Enterprise App Development using JavaEE6, 2013-04-01, 2013-08-30
+[2018-12-05] <==      Total: 2
+[2018-12-05] selectTutorByTutorId
+[2018-12-05] ==>  Preparing: select t.TUTOR_ID, t.NAME as tutor_name, email, c.COURSE_ID, c.NAME, a.addr_id, description, start_date, end_date from tutors t left outer join addresses a on t.ADDR_ID=a.ADDR_ID left outer join courses c on t.TUTOR_ID=c.TUTOR_ID WHERE t.tutor_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: TUTOR_ID, tutor_name, email, COURSE_ID, NAME, addr_id, description, start_date, end_date
+[2018-12-05] <==        Row: 1, John, john@gmail.com, 1, Quickstart Core Java, 1, Core Java Programming, 2013-03-01, 2013-04-15
+[2018-12-05] <==        Row: 1, John, john@gmail.com, 2, Quickstart JavaEE6, 1, Enterprise App Development using JavaEE6, 2013-04-01, 2013-08-30
+[2018-12-05] <==      Total: 2
+[2018-12-05] test01selectStudentByNo()
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students WHERE stud_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==      Total: 1
+[2018-12-05] test02selectStudentByAll()
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-12-05] <==        Row: 6, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==        Row: 7, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==        Row: 8, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==      Total: 5
+[2018-12-05] ==>  Preparing: insert into students(STUD_ID,NAME,EMAIL,PHONE,DOB) value(?,?,?,?,?) 
+[2018-12-05] ==> Parameters: 3(Integer), 홍길동(String), lee@test.co.kr(String), 010-1234-1234(String), 1990-03-28 14:46:03.583(Timestamp)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: update students set NAME = ?, EMAIL=?,PHONE=?,DOB=? where STUD_ID = ? 
+[2018-12-05] ==> Parameters: 홍길동2(String), test@test.co.kr(String), 987-654-3211(String), 2018-12-05 14:46:03.583(Timestamp), 3(Integer)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: delete from students where STUD_ID = ?; 
+[2018-12-05] ==> Parameters: 3(Integer)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-12-05] <==        Row: 6, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==        Row: 7, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==        Row: 8, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==      Total: 5
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-12-05] <==        Row: 6, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==        Row: 7, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==        Row: 8, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==      Total: 5
+[2018-12-05] 	key(phone)-value(123-123-1234)
+[2018-12-05] 	key(dob)-value(1988-04-25)
+[2018-12-05] 	key(name)-value(Timothy)
+[2018-12-05] 	key(studid)-value(1)
+[2018-12-05] 	key(email)-value(timothy@gmail.com)
+[2018-12-05] 	key(phone)-value(789-456-1234)
+[2018-12-05] 	key(dob)-value(1990-08-15)
+[2018-12-05] 	key(name)-value(Douglas)
+[2018-12-05] 	key(studid)-value(2)
+[2018-12-05] 	key(email)-value(douglas@gmail.com)
+[2018-12-05] 	key(phone)-value(010-1234-1234)
+[2018-12-05] 	key(dob)-value(1990-03-28)
+[2018-12-05] 	key(name)-value(test)
+[2018-12-05] 	key(studid)-value(6)
+[2018-12-05] 	key(email)-value(test@test.co.kr)
+[2018-12-05] 	key(phone)-value(010-1234-1234)
+[2018-12-05] 	key(dob)-value(1990-03-28)
+[2018-12-05] 	key(name)-value(test)
+[2018-12-05] 	key(studid)-value(7)
+[2018-12-05] 	key(email)-value(test@test.co.kr)
+[2018-12-05] 	key(phone)-value(010-1234-1234)
+[2018-12-05] 	key(dob)-value(1990-03-28)
+[2018-12-05] 	key(name)-value(test)
+[2018-12-05] 	key(studid)-value(8)
+[2018-12-05] 	key(email)-value(test@test.co.kr)
+[2018-12-05] ==>  Preparing: select STUD_ID, name, email, phone, a.ADDR_ID, street, city, state, zip, country from students s left join addresses a on s.ADDR_ID = a.ADDR_ID WHERE stud_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: STUD_ID, name, email, phone, ADDR_ID, street, city, state, zip, country
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 123-123-1234, 3, 710 N Cable Rd, Lima, OH, 45825, Allen
+[2018-12-05] <==      Total: 1
+[2018-12-05] ==>  Preparing: select STUD_ID, name, email, phone, a.ADDR_ID, street, city, state, zip, country from students s left join addresses a on s.ADDR_ID = a.ADDR_ID where STUD_ID =? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: STUD_ID, name, email, phone, ADDR_ID, street, city, state, zip, country
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 123-123-1234, 3, 710 N Cable Rd, Lima, OH, 45825, Allen
+[2018-12-05] <==      Total: 1
+[2018-12-05] ==>  Preparing: insert into students(stud_id, name, email, phone, dob, gender) values(?,?,?,?,?,?) 
+[2018-12-05] ==> Parameters: 0(Integer), test(String), test@test.co.kr(String), 010-1234-1234(String), 1990-03-28 14:46:03.615(Timestamp), 0(Integer)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone, gender from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone, gender
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234, null
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234, null
+[2018-12-05] <==        Row: 6, test, test@test.co.kr, 1990-03-28, 010-1234-1234, 0
+[2018-12-05] <==        Row: 7, test, test@test.co.kr, 1990-03-28, 010-1234-1234, 0
+[2018-12-05] <==        Row: 8, test, test@test.co.kr, 1990-03-28, 010-1234-1234, 0
+[2018-12-05] <==        Row: 9, test, test@test.co.kr, 1990-03-28, 010-1234-1234, 0
+[2018-12-05] <==      Total: 6
+[2018-12-05] testOpenSession()
+[2018-12-05] session org.apache.ibatis.session.defaults.DefaultSqlSession@38a25440
+[2018-12-05] test01selectStudentByNo()
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students WHERE stud_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==      Total: 1
+[2018-12-05] test02selectStudentByAll()
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-12-05] <==      Total: 2
+[2018-12-05] ==>  Preparing: insert into students(STUD_ID,NAME,EMAIL,PHONE,DOB) value(?,?,?,?,?) 
+[2018-12-05] ==> Parameters: 3(Integer), ȫ�浿(String), lee@test.co.kr(String), 010-1234-1234(String), 1990-03-28 14:46:44.869(Timestamp)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: update students set NAME = ?, EMAIL=?,PHONE=?,DOB=? where STUD_ID = ? 
+[2018-12-05] ==> Parameters: ȫ�浿2(String), test@test.co.kr(String), 987-654-3211(String), 2018-12-05 14:46:44.878(Timestamp), 3(Integer)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: delete from students where STUD_ID = ?; 
+[2018-12-05] ==> Parameters: 3(Integer)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-12-05] <==      Total: 2
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-12-05] <==      Total: 2
+[2018-12-05] 	key(phone)-value(123-123-1234)
+[2018-12-05] 	key(dob)-value(1988-04-25)
+[2018-12-05] 	key(name)-value(Timothy)
+[2018-12-05] 	key(studid)-value(1)
+[2018-12-05] 	key(email)-value(timothy@gmail.com)
+[2018-12-05] 	key(phone)-value(789-456-1234)
+[2018-12-05] 	key(dob)-value(1990-08-15)
+[2018-12-05] 	key(name)-value(Douglas)
+[2018-12-05] 	key(studid)-value(2)
+[2018-12-05] 	key(email)-value(douglas@gmail.com)
+[2018-12-05] ==>  Preparing: select STUD_ID, name, email, phone, a.ADDR_ID, street, city, state, zip, country from students s left join addresses a on s.ADDR_ID = a.ADDR_ID WHERE stud_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: STUD_ID, name, email, phone, ADDR_ID, street, city, state, zip, country
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 123-123-1234, 3, 710 N Cable Rd, Lima, OH, 45825, Allen
+[2018-12-05] <==      Total: 1
+[2018-12-05] ==>  Preparing: select STUD_ID, name, email, phone, a.ADDR_ID, street, city, state, zip, country from students s left join addresses a on s.ADDR_ID = a.ADDR_ID where STUD_ID =? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: STUD_ID, name, email, phone, ADDR_ID, street, city, state, zip, country
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 123-123-1234, 3, 710 N Cable Rd, Lima, OH, 45825, Allen
+[2018-12-05] <==      Total: 1
+[2018-12-05] ==>  Preparing: insert into students(stud_id, name, email, phone, dob, gender) values(?,?,?,?,?,?) 
+[2018-12-05] ==> Parameters: 0(Integer), test(String), test@test.co.kr(String), 010-1234-1234(String), 1990-03-28 14:46:44.911(Timestamp), 0(Integer)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone, gender from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone, gender
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234, null
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234, null
+[2018-12-05] <==        Row: 10, test, test@test.co.kr, 1990-03-28, 010-1234-1234, 0
+[2018-12-05] <==      Total: 3
+[2018-12-05] selectTutorById
+[2018-12-05] ==>  Preparing: select t.TUTOR_ID, t.NAME as tutor_name, email, c.COURSE_ID, c.NAME, a.addr_id, description, start_date, end_date from tutors t left outer join addresses a on t.ADDR_ID=a.ADDR_ID left outer join courses c on t.TUTOR_ID=c.TUTOR_ID where t.tutor_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: TUTOR_ID, tutor_name, email, COURSE_ID, NAME, addr_id, description, start_date, end_date
+[2018-12-05] <==        Row: 1, John, john@gmail.com, 1, Quickstart Core Java, 1, Core Java Programming, 2013-03-01, 2013-04-15
+[2018-12-05] <==        Row: 1, John, john@gmail.com, 2, Quickstart JavaEE6, 1, Enterprise App Development using JavaEE6, 2013-04-01, 2013-08-30
+[2018-12-05] <==      Total: 2
+[2018-12-05] selectTutorByTutorId
+[2018-12-05] ==>  Preparing: select t.TUTOR_ID, t.NAME as tutor_name, email, c.COURSE_ID, c.NAME, a.addr_id, description, start_date, end_date from tutors t left outer join addresses a on t.ADDR_ID=a.ADDR_ID left outer join courses c on t.TUTOR_ID=c.TUTOR_ID WHERE t.tutor_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: TUTOR_ID, tutor_name, email, COURSE_ID, NAME, addr_id, description, start_date, end_date
+[2018-12-05] <==        Row: 1, John, john@gmail.com, 1, Quickstart Core Java, 1, Core Java Programming, 2013-03-01, 2013-04-15
+[2018-12-05] <==        Row: 1, John, john@gmail.com, 2, Quickstart JavaEE6, 1, Enterprise App Development using JavaEE6, 2013-04-01, 2013-08-30
+[2018-12-05] <==      Total: 2
+[2018-12-05] testOpenSession()
+[2018-12-05] session org.apache.ibatis.session.defaults.DefaultSqlSession@33760a98
+[2018-12-05] test01selectStudentByNo()
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students WHERE stud_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==      Total: 1
+[2018-12-05] test02selectStudentByAll()
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-12-05] <==        Row: 10, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==      Total: 3
+[2018-12-05] ==>  Preparing: insert into students(STUD_ID,NAME,EMAIL,PHONE,DOB) value(?,?,?,?,?) 
+[2018-12-05] ==> Parameters: 3(Integer), ȫ�浿(String), lee@test.co.kr(String), 010-1234-1234(String), 1990-03-28 14:51:19.848(Timestamp)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: update students set NAME = ?, EMAIL=?,PHONE=?,DOB=? where STUD_ID = ? 
+[2018-12-05] ==> Parameters: ȫ�浿2(String), test@test.co.kr(String), 987-654-3211(String), 2018-12-05 14:51:19.855(Timestamp), 3(Integer)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: delete from students where STUD_ID = ?; 
+[2018-12-05] ==> Parameters: 3(Integer)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-12-05] <==        Row: 10, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==      Total: 3
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-12-05] <==        Row: 10, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==      Total: 3
+[2018-12-05] 	key(phone)-value(123-123-1234)
+[2018-12-05] 	key(dob)-value(1988-04-25)
+[2018-12-05] 	key(name)-value(Timothy)
+[2018-12-05] 	key(studid)-value(1)
+[2018-12-05] 	key(email)-value(timothy@gmail.com)
+[2018-12-05] 	key(phone)-value(789-456-1234)
+[2018-12-05] 	key(dob)-value(1990-08-15)
+[2018-12-05] 	key(name)-value(Douglas)
+[2018-12-05] 	key(studid)-value(2)
+[2018-12-05] 	key(email)-value(douglas@gmail.com)
+[2018-12-05] 	key(phone)-value(010-1234-1234)
+[2018-12-05] 	key(dob)-value(1990-03-28)
+[2018-12-05] 	key(name)-value(test)
+[2018-12-05] 	key(studid)-value(10)
+[2018-12-05] 	key(email)-value(test@test.co.kr)
+[2018-12-05] ==>  Preparing: select STUD_ID, name, email, phone, a.ADDR_ID, street, city, state, zip, country from students s left join addresses a on s.ADDR_ID = a.ADDR_ID WHERE stud_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: STUD_ID, name, email, phone, ADDR_ID, street, city, state, zip, country
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 123-123-1234, 3, 710 N Cable Rd, Lima, OH, 45825, Allen
+[2018-12-05] <==      Total: 1
+[2018-12-05] ==>  Preparing: select STUD_ID, name, email, phone, a.ADDR_ID, street, city, state, zip, country from students s left join addresses a on s.ADDR_ID = a.ADDR_ID where STUD_ID =? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: STUD_ID, name, email, phone, ADDR_ID, street, city, state, zip, country
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 123-123-1234, 3, 710 N Cable Rd, Lima, OH, 45825, Allen
+[2018-12-05] <==      Total: 1
+[2018-12-05] ==>  Preparing: insert into students(stud_id, name, email, phone, dob, gender) values(?,?,?,?,?,?) 
+[2018-12-05] ==> Parameters: 0(Integer), test(String), test@test.co.kr(String), 010-1234-1234(String), 1990-03-28 14:51:19.885(Timestamp), FEMALE(String)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone, gender from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone, gender
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234, null
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234, null
+[2018-12-05] <==        Row: 10, test, test@test.co.kr, 1990-03-28, 010-1234-1234, 0
+[2018-12-05] selectTutorById
+[2018-12-05] ==>  Preparing: select t.TUTOR_ID, t.NAME as tutor_name, email, c.COURSE_ID, c.NAME, a.addr_id, description, start_date, end_date from tutors t left outer join addresses a on t.ADDR_ID=a.ADDR_ID left outer join courses c on t.TUTOR_ID=c.TUTOR_ID where t.tutor_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: TUTOR_ID, tutor_name, email, COURSE_ID, NAME, addr_id, description, start_date, end_date
+[2018-12-05] <==        Row: 1, John, john@gmail.com, 1, Quickstart Core Java, 1, Core Java Programming, 2013-03-01, 2013-04-15
+[2018-12-05] <==        Row: 1, John, john@gmail.com, 2, Quickstart JavaEE6, 1, Enterprise App Development using JavaEE6, 2013-04-01, 2013-08-30
+[2018-12-05] <==      Total: 2
+[2018-12-05] selectTutorByTutorId
+[2018-12-05] ==>  Preparing: select t.TUTOR_ID, t.NAME as tutor_name, email, c.COURSE_ID, c.NAME, a.addr_id, description, start_date, end_date from tutors t left outer join addresses a on t.ADDR_ID=a.ADDR_ID left outer join courses c on t.TUTOR_ID=c.TUTOR_ID WHERE t.tutor_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: TUTOR_ID, tutor_name, email, COURSE_ID, NAME, addr_id, description, start_date, end_date
+[2018-12-05] <==        Row: 1, John, john@gmail.com, 1, Quickstart Core Java, 1, Core Java Programming, 2013-03-01, 2013-04-15
+[2018-12-05] <==        Row: 1, John, john@gmail.com, 2, Quickstart JavaEE6, 1, Enterprise App Development using JavaEE6, 2013-04-01, 2013-08-30
+[2018-12-05] <==      Total: 2
+[2018-12-05] testOpenSession()
+[2018-12-05] session org.apache.ibatis.session.defaults.DefaultSqlSession@33760a98
+[2018-12-05] test01selectStudentByNo()
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students WHERE stud_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==      Total: 1
+[2018-12-05] test02selectStudentByAll()
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-12-05] <==        Row: 11, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==      Total: 3
+[2018-12-05] ==>  Preparing: insert into students(STUD_ID,NAME,EMAIL,PHONE,DOB) value(?,?,?,?,?) 
+[2018-12-05] ==> Parameters: 3(Integer), ȫ�浿(String), lee@test.co.kr(String), 010-1234-1234(String), 1990-03-28 14:53:33.652(Timestamp)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: update students set NAME = ?, EMAIL=?,PHONE=?,DOB=? where STUD_ID = ? 
+[2018-12-05] ==> Parameters: ȫ�浿2(String), test@test.co.kr(String), 987-654-3211(String), 2018-12-05 14:53:33.66(Timestamp), 3(Integer)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: delete from students where STUD_ID = ?; 
+[2018-12-05] ==> Parameters: 3(Integer)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-12-05] <==        Row: 11, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==      Total: 3
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234
+[2018-12-05] <==        Row: 11, test, test@test.co.kr, 1990-03-28, 010-1234-1234
+[2018-12-05] <==      Total: 3
+[2018-12-05] 	key(phone)-value(123-123-1234)
+[2018-12-05] 	key(dob)-value(1988-04-25)
+[2018-12-05] 	key(name)-value(Timothy)
+[2018-12-05] 	key(studid)-value(1)
+[2018-12-05] 	key(email)-value(timothy@gmail.com)
+[2018-12-05] 	key(phone)-value(789-456-1234)
+[2018-12-05] 	key(dob)-value(1990-08-15)
+[2018-12-05] 	key(name)-value(Douglas)
+[2018-12-05] 	key(studid)-value(2)
+[2018-12-05] 	key(email)-value(douglas@gmail.com)
+[2018-12-05] 	key(phone)-value(010-1234-1234)
+[2018-12-05] 	key(dob)-value(1990-03-28)
+[2018-12-05] 	key(name)-value(test)
+[2018-12-05] 	key(studid)-value(11)
+[2018-12-05] 	key(email)-value(test@test.co.kr)
+[2018-12-05] ==>  Preparing: select STUD_ID, name, email, phone, a.ADDR_ID, street, city, state, zip, country from students s left join addresses a on s.ADDR_ID = a.ADDR_ID WHERE stud_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: STUD_ID, name, email, phone, ADDR_ID, street, city, state, zip, country
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 123-123-1234, 3, 710 N Cable Rd, Lima, OH, 45825, Allen
+[2018-12-05] <==      Total: 1
+[2018-12-05] ==>  Preparing: select STUD_ID, name, email, phone, a.ADDR_ID, street, city, state, zip, country from students s left join addresses a on s.ADDR_ID = a.ADDR_ID where STUD_ID =? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: STUD_ID, name, email, phone, ADDR_ID, street, city, state, zip, country
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 123-123-1234, 3, 710 N Cable Rd, Lima, OH, 45825, Allen
+[2018-12-05] <==      Total: 1
+[2018-12-05] ==>  Preparing: insert into students(stud_id, name, email, phone, dob, gender) values(?,?,?,?,?,?) 
+[2018-12-05] ==> Parameters: 0(Integer), test(String), test@test.co.kr(String), 010-1234-1234(String), 1990-03-28 14:53:33.688(Timestamp), FEMALE(String)
+[2018-12-05] <==    Updates: 1
+[2018-12-05] ==>  Preparing: select stud_id as studid, name, email, dob, phone, gender from students 
+[2018-12-05] ==> Parameters: 
+[2018-12-05] <==    Columns: studid, name, email, dob, phone, gender
+[2018-12-05] <==        Row: 1, Timothy, timothy@gmail.com, 1988-04-25, 123-123-1234, null
+[2018-12-05] <==        Row: 2, Douglas, douglas@gmail.com, 1990-08-15, 789-456-1234, null
+[2018-12-05] <==        Row: 11, test, test@test.co.kr, 1990-03-28, 010-1234-1234, FEMALE
+[2018-12-05] <==        Row: 12, test, test@test.co.kr, 1990-03-28, 010-1234-1234, FEMALE
+[2018-12-05] <==      Total: 4
+[2018-12-05] selectTutorById
+[2018-12-05] ==>  Preparing: select t.TUTOR_ID, t.NAME as tutor_name, email, c.COURSE_ID, c.NAME, a.addr_id, description, start_date, end_date from tutors t left outer join addresses a on t.ADDR_ID=a.ADDR_ID left outer join courses c on t.TUTOR_ID=c.TUTOR_ID where t.tutor_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: TUTOR_ID, tutor_name, email, COURSE_ID, NAME, addr_id, description, start_date, end_date
+[2018-12-05] <==        Row: 1, John, john@gmail.com, 1, Quickstart Core Java, 1, Core Java Programming, 2013-03-01, 2013-04-15
+[2018-12-05] <==        Row: 1, John, john@gmail.com, 2, Quickstart JavaEE6, 1, Enterprise App Development using JavaEE6, 2013-04-01, 2013-08-30
+[2018-12-05] <==      Total: 2
+[2018-12-05] selectTutorByTutorId
+[2018-12-05] ==>  Preparing: select t.TUTOR_ID, t.NAME as tutor_name, email, c.COURSE_ID, c.NAME, a.addr_id, description, start_date, end_date from tutors t left outer join addresses a on t.ADDR_ID=a.ADDR_ID left outer join courses c on t.TUTOR_ID=c.TUTOR_ID WHERE t.tutor_id=? 
+[2018-12-05] ==> Parameters: 1(Integer)
+[2018-12-05] <==    Columns: TUTOR_ID, tutor_name, email, COURSE_ID, NAME, addr_id, description, start_date, end_date
+[2018-12-05] <==        Row: 1, John, john@gmail.com, 1, Quickstart Core Java, 1, Core Java Programming, 2013-03-01, 2013-04-15
+[2018-12-05] <==        Row: 1, John, john@gmail.com, 2, Quickstart JavaEE6, 1, Enterprise App Development using JavaEE6, 2013-04-01, 2013-08-30
+[2018-12-05] <==      Total: 2
