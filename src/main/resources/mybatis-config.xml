@@ -8,8 +8,9 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>
 		<package name="kr.or.yi.mybatis_dev_wsm.dto"/>
 	</typeAliases>
-	
+
 	<typeHandlers>
+		<!--숫자로 출력됨 <typeHandler handler="org.apache.ibatis.type.EnumOrdinalTypeHandler" javaType="Gender"/> -->
 		<package name="kr.or.yi.mybatis_dev_wsm.typehandler"/>
 	</typeHandlers>
 	

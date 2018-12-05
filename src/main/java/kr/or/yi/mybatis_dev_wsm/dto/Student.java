@@ -9,7 +9,7 @@ public class Student {
 	private PhoneNumber phone;
 	private Date dob; //util로 import
 	private Address address;
-	
+	private Gender gender;
 	
 	
 	public Student() {
@@ -24,6 +24,14 @@ public class Student {
 		this.dob = dob;
 	}
 	
+	public Gender getGender() {
+		return gender;
+	}
+
+	public void setGender(Gender gender) {
+		this.gender = gender;
+	}
+
 	public Address getAddress() {
 		return address;
 	}
@@ -64,7 +72,7 @@ public class Student {
 	}
 	@Override
 	public String toString() {
-		return String.format("Student [%s, %s, %s, %s, %s, %s]", studId, name, email, phone, dob, address);
+		return String.format("Student [%s, %s, %s, %s, %s, %s, %s]", studId, name, email, phone, dob, address, gender);
 	}
 	
 	

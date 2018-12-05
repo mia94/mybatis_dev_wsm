@@ -33,6 +33,11 @@
 		<result property="address.country" column="country"/>
 	</resultMap>
 	
+	<!-- enum -->
+	<resultMap type="Student" id="StudentResultGender" extends="StudentResult">
+		<result property="gender" column="gender"/>
+	</resultMap>
+	
 	<!-- hashMap -->
 	<select id="selectStudentByAllForHashMap" resultType="map">
 		<include refid="selectSql"></include>
@@ -100,6 +105,16 @@
 		set	NAME = #{name}, EMAIL=#{email},PHONE=#{phone},DOB=#{dob}
 		where STUD_ID = #{studId}
 	</update>
+	
+	<!-- enum 타입 다루기 -->
+	<insert id="insertEnumStudent" parameterType="Student" useGeneratedKeys="true" keyProperty="studId">
+		insert into students(stud_id, name, email, phone, dob, gender) 
+		values(#{studId},#{name},#{email},#{phone},#{dob},#{gender})
+	</insert>
+	
+	<select id="selectStudentWithGender" resultMap="StudentResultGender">
+		select stud_id as studid, name, email, dob, phone, gender from students
+	</select>
 </mapper>
 
 

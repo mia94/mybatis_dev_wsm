@@ -27,4 +27,8 @@ public interface StudentMapper {
 	
 	//내포된 결과매핑(ResultMap)을 사용한 일대일매핑
 	Student selectStudentByNoAssociation(Student student);
+	
+	//enum타입 다루기
+	int insertEnumStudent(Student student);
+	List<Student> selectStudentWithGender();
 }

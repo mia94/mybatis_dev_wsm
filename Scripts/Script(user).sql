@@ -33,11 +33,15 @@ from tutors t left outer join addresses a on t.ADDR_ID=a.ADDR_ID
 				left outer join courses c on t.TUTOR_ID=c.TUTOR_ID;
 
 
+alter table students add gender tinyint unsigned;
 
+desc students;
 
+select stud_id as studid, name, email, dob, phone, gender from students;
 
-
-
+delete
+from students
+where STUD_ID = 10;
 
 
 

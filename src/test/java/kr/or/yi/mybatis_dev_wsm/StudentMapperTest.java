@@ -16,6 +16,7 @@ import org.junit.runners.MethodSorters;
 
 import kr.or.yi.mybatis_dev_wsm.dao.StudentMapper;
 import kr.or.yi.mybatis_dev_wsm.dao.StudentMapperImpl;
+import kr.or.yi.mybatis_dev_wsm.dto.Gender;
 import kr.or.yi.mybatis_dev_wsm.dto.PhoneNumber;
 import kr.or.yi.mybatis_dev_wsm.dto.Student;
 
@@ -117,7 +118,7 @@ public class StudentMapperTest extends AbstractTest {
 		Assert.assertNotNull(extStd);
 	}
 	
-	@Test
+	/*@Test
 	public void test11selectStudentByNoAssociation() {
 		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName()+"()");
 		//메소드 이름 출력할수 있는 배열 눈으로 확인해보기
@@ -125,11 +126,33 @@ public class StudentMapperTest extends AbstractTest {
 		for(StackTraceElement s : ste) {
 			System.out.println(s);
 		}
-		/*Student student = new Student();
+		Student student = new Student();
 		student.setStudId(1);
 		
 		Student lists = dao.selectStudentByNoAssociation(student);
-		Assert.assertNotNull(lists);*/
+		Assert.assertNotNull(lists);
+	}*/
+	
+	@Test
+	public void test12insertEnumStudent() {
+		Calendar newDate = GregorianCalendar.getInstance();
+		newDate.set(1990, 2, 28);
+		Student student = new Student();//autoincrement했기때문에 학생번호 입력은 생략
+		student.setName("test");
+		student.setEmail("test@test.co.kr");
+		student.setDob(newDate.getTime());
+		student.setPhone(new PhoneNumber("010-1234-1234"));
+		student.setGender(Gender.FEMALE);
+		
+		int res = dao.insertEnumStudent(student);
+		Assert.assertEquals(1, res);
+				
+	}
+	
+	@Test
+	public void test13selectStudentWithGender() {
+		List<Student> lists = dao.selectStudentWithGender();
+		Assert.assertNotNull(lists);
 	}
 	
 }
