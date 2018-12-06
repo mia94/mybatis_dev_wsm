@@ -1,5 +1,6 @@
 package kr.or.yi.mybatis_dev_wsm.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -31,4 +32,23 @@ public interface StudentMapper {
 	//enum타입 다루기
 	int insertEnumStudent(Student student);
 	List<Student> selectStudentWithGender();
+	
+	//여러개의 입력파라미터 전달
+	List<Student> selectAllStudentByMap(Map<String, String> map);
+	
+	//Result처리방식의 재정의
+	Map<Integer, String> selectStudentForMap();
+	Map<Integer, Student>  selectStudentAllForMap();
+	
 }
+
+
+
+
+
+
+
+
+
+
+

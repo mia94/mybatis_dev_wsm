@@ -33,6 +33,8 @@
 		<result property="address.country" column="country"/>
 	</resultMap>
 	
+	
+	
 	<!-- enum -->
 	<resultMap type="Student" id="StudentResultGender" extends="StudentResult">
 		<result property="gender" column="gender"/>
@@ -114,6 +116,51 @@
 	
 	<select id="selectStudentWithGender" resultMap="StudentResultGender">
 		select stud_id as studid, name, email, dob, phone, gender from students
+	</select>
+	
+	<!-- 여러개의 입력파라미터 -->
+	<sql id="selectParameterSql">
+		select STUD_ID, name, email, phone, dob, gender
+		from students
+	</sql>
+	
+	<sql id="whereNameEmailSql">
+		<where>
+			<if test="name!=null">
+				name = #{name}
+			</if>
+			<if test="email!=null">
+				AND email = #{email}
+			</if>
+		</where>
+	</sql>
+	
+<!-- 	<select id="selectAllStudentByParam" resultMap="StudentGenderResult">
+		<include refid="selectParameterSql"></include>
+		where name = #{param1} and email = #{param2}
+	</select>
+	
+	<select id="selectAllStudentByStudent" resultMap="StudentGenderResult" parameterType="Student">
+		<include refid="selectParameterSql"></include>
+		<include refid="whereNameEmailSql"></include>
+	</select> -->
+	
+	<select id="selectAllStudentByMap" resultMap="StudentResultGender" parameterType="map">
+		<include refid="selectParameterSql"></include>
+		<include refid="whereNameEmailSql"></include>
+	</select>
+	
+	<!-- ResultSet처리방식 재정의  p.315 책대로 하는 것X -->
+	<resultMap type="Student" id="studentIdName">
+		<id property="studId" column="stud_id"></id>
+		<result property="name" column="name"/>
+	</resultMap>
+	<select id="selectStudentForMap" resultMap="studentIdName">
+		select stud_id, name from students
+	</select>
+	
+	<select id="selectStudentAllForMap" resultMap="StudentResultGender">
+		select stud_id, name, email, phone, dob, gender from students
 	</select>
 </mapper>
 

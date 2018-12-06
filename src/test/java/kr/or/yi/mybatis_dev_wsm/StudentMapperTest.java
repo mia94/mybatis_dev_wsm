@@ -3,6 +3,7 @@ package kr.or.yi.mybatis_dev_wsm;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -154,6 +155,26 @@ public class StudentMapperTest extends AbstractTest {
 		List<Student> lists = dao.selectStudentWithGender();
 		Assert.assertNotNull(lists);
 	}
+	
+	@Test
+	public void test15selectStudentByMap() {
+		log.debug(Thread.currentThread().getStackTrace()[1].getMethodName()+"()");
+		Map<String, String> maps = new HashMap<>();
+		maps.put("name", "test");
+		List<Student> list = dao.selectAllStudentByMap(maps);
+		Assert.assertNotNull(list);
+		
+		maps.remove("name");
+		maps.put("email", "timothy@gmail.com");
+		list.clear();
+		list=dao.selectAllStudentByMap(maps);
+		Assert.assertNotNull(list);
+		
+		maps.put("name", "Timothy");
+		list.clear();
+		list = dao.selectAllStudentByMap(maps);
+		Assert.assertNotNull(list);
+	} 
 	
 }
 

@@ -43,6 +43,23 @@ delete
 from students
 where STUD_ID = 10;
 
+create table userpic(
+	id integer auto_increment primary key,
+	name varcharacter(50),
+	pic longblob,
+	bio longtext
+);
+
+desc userpic;
+
+select STUD_ID, name, email, phone, dob, gender
+		from students;
+
+
+
+
+
+
 
 
 
